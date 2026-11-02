@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Curious Case of Edmund Vale</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>The Curious Case of Edmund Vale</h1>
+
+<div class="toolbar">
+  <span id="progress" aria-live="polite"></span>
+  <button onclick="resetGame()">Start over</button>
+</div>
+
+<main class="comic">
+
+  <img id="panelImage" class="panel-image" src="" alt="" onerror="this.style.display='none'" onload="this.style.display='block'">
+
+  <h2 id="panelTitle"></h2>
+  <div class="caption" id="panelCaption"></div>
+  <div class="bubble" id="panelText"></div>
+
+  <div id="hintArea"></div>
+
+  <!-- Only shown on the endings -->
+  <div class="fun-image" id="funImage">
+    <img src="image/duck.png" alt="Detective duck holding a magnifying glass" class="finish-img">
+    <p><em>Detective Duck has solved the case. The sandwich was never found.</em></p>
+  </div>
+
+  <p class="message" id="message" aria-live="polite"></p>
+
+  <div class="code-area" id="codeArea">
+    <p>Enter the four-digit code (the lock is judging you):</p>
+    <input type="text" id="codeBox" inputmode="numeric" maxlength="4" placeholder="????" aria-label="Four-digit lock code">
+    <button onclick="checkCode()">Try the code</button>
+  </div>
+
+  <div id="choices" class="choices"></div>
+</main>
+
+<aside class="journal">
+  <h3>Case journal</h3>
+  <p class="journal-note">Things you find get written here. Locked items stay blank until you find them.</p>
+  <div id="journalList"></div>
+</aside>
+
+<script src="script.js"></script>
+</body>
+</html>
